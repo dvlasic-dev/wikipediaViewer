@@ -23,10 +23,23 @@ window.onload = function(){
       if(articles.status >= 200 && articles.status < 400){
         var article = JSON.parse(articles.response);
         for(var i = 0; article[1].length > i; i++){
-          var headline = article[1][i];
-          var description = article[2][i];
-          var link = article[3][i];
 
+          var newH1 = document.createElement("h1");
+          var newContent = document.createTextNode(article[1][i]);
+          newH1.appendChild(newContent); //add the text node to the newly created div.
+          // add the newly created element and its content into the DOM
+          var currentDiv = document.getElementById("addArticles");
+          document.body.insertBefore(newH1, currentDiv);
+          var description = document.createElement("p");
+          var newDesc = document.createTextNode(article[2][i]);
+          description.appendChild(newDesc); //add the text node to the newly created div.
+          // add the newly created element and its content into the DOM
+          document.body.insertBefore(newDesc, currentDiv);
+          var link = document.createElement("a");
+          var newLink = document.createTextNode(article[3][i]);
+          newH1.appendChild(newContent); //add the text node to the newly created div.
+          // add the newly created element and its content into the DOM
+          document.body.insertBefore(newLink, currentDiv);
 
         }
       }else{
