@@ -4,14 +4,21 @@ window.onload = function(){
   var input = document.getElementById("input");
   var inputValue = "";
   var createArticle = document.getElementById("addArticles");
+  var currentArticle = document.getElementById("article");
 
   document.addEventListener("keydown", function (event){
     var keyName = event.key;
     if (keyName === "Enter") {
       inputValue = input.value;
-      getArticle();
+      if(inputValue != 0){
+        getArticle();
+      }
+      createArticle.innerHTML = "";
     }
+
+
   }, false);
+
 
   //get article from wikipedia
   var getArticle = function (event){
@@ -29,6 +36,7 @@ window.onload = function(){
           fragment.append(makeArticle(headline[i], desc[i], anchor[i]));
         }
         createArticle.appendChild(fragment);
+
       }else{
         console.warn("error");
       }
@@ -37,6 +45,7 @@ window.onload = function(){
   };
 
   var makeArticle = function (title, description, link){
+
     var article = document.createElement("article"),
       heading = document.createElement("h1"),
       paragraph = document.createElement("p"),
