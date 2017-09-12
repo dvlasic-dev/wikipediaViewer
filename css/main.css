@@ -1,0 +1,13 @@
+.search{
+  text-align: center;
+
+}
+.search h1{
+  font-family: 'Open Sans', sans-serif;
+  color: #40798C;
+  padding-top: 1em;
+  padding-bottom: .5em;
+}
+.article{
+  margin-bottom: 3em; 
+}
