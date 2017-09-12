@@ -5,7 +5,6 @@ window.onload = function(){
   var inputValue = "";
   var createArticle = document.getElementById("addArticles");
 
-
   document.addEventListener("keydown", function (event){
     var keyName = event.key;
     if (keyName === "Enter") {
@@ -22,26 +21,14 @@ window.onload = function(){
     articles.onload = function (){
       if(articles.status >= 200 && articles.status < 400){
         var article = JSON.parse(articles.response);
+        var headline = article[1];
+        var desc = article[2];
+        var anchor = article[3];
+        var fragment = document.createDocumentFragment();
         for(var i = 0; article[1].length > i; i++){
-
-          var newH1 = document.createElement("h1");
-          var newContent = document.createTextNode(article[1][i]);
-          newH1.appendChild(newContent); //add the text node to the newly created div.
-          // add the newly created element and its content into the DOM
-          var currentDiv = document.getElementById("addArticles");
-          document.body.insertBefore(newH1, currentDiv);
-          var description = document.createElement("p");
-          var newDesc = document.createTextNode(article[2][i]);
-          description.appendChild(newDesc); //add the text node to the newly created div.
-          // add the newly created element and its content into the DOM
-          document.body.insertBefore(newDesc, currentDiv);
-          var link = document.createElement("a");
-          var newLink = document.createTextNode(article[3][i]);
-          newH1.appendChild(newContent); //add the text node to the newly created div.
-          // add the newly created element and its content into the DOM
-          document.body.insertBefore(newLink, currentDiv);
-
+          fragment.append(makeArticle(headline[i], desc[i], anchor[i]));
         }
+        createArticle.appendChild(fragment);
       }else{
         console.warn("error");
       }
@@ -49,5 +36,28 @@ window.onload = function(){
     articles.send();
   };
 
+  var makeArticle = function (title, description, link){
+    var article = document.createElement("article"),
+      heading = document.createElement("h1"),
+      paragraph = document.createElement("p"),
+      url = document.createElement("a");
+
+    heading.appendChild(document.createTextNode(title));
+    paragraph.appendChild(document.createTextNode(description));
+    url.href = link;
+    url.target = "blank";
+    url.text = "Click here to read more";
+    [heading].forEach(function (arg) {
+      article.appendChild(arg);
+    });
+    [paragraph].forEach(function (arg) {
+      article.appendChild(arg);
+    });
+    [url].forEach(function (arg) {
+      article.appendChild(arg);
+    });
+    article.className = "article";
+    return article;
+  };
   click.addEventListener("click", getArticle);
 };
