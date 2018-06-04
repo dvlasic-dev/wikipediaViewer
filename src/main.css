@@ -11,14 +11,21 @@
 .article{
   margin-bottom: 3em; 
 }
-#addArticles{
+#articles{
   margin-top: 2em;
 }
-#addArticles article{
-  border: solid 2px silver;
+#articles article{
+  border: solid .2em #95a5a6;
   padding: 2em;
 }
-
+.error-msg{
+  display: inline-block;
+  color: white;
+  background-color: #d63031;
+  margin-bottom: 5vh;
+  padding: 0 2vh 0 2vh;
+  
+}
 
 /* Mobile first queries */
 
