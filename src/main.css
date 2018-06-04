@@ -1,0 +1,46 @@
+.search{
+  text-align: center;
+
+}
+.search h1{
+  font-family: 'Open Sans', sans-serif;
+  color: #40798C;
+  padding-top: 1em;
+  padding-bottom: .5em;
+}
+.article{
+  margin-bottom: 3em; 
+}
+#addArticles{
+  margin-top: 2em;
+}
+#addArticles article{
+  border: solid 2px silver;
+  padding: 2em;
+}
+
+
+/* Mobile first queries */
+
+/* Larger than mobile */
+@media (min-width: 320px) and (max-width: 1000px) {
+.search h1{
+  font-size: 6em;
+}
+#input{
+  width: 15em;
+  height: 2em;
+  font-size: 2em;
+}
+}
+/* Larger than phablet */
+@media (min-width: 550px) {}
+
+/* Larger than tablet */
+@media (min-width: 750px) {}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}
