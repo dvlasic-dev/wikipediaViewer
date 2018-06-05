@@ -1,6 +1,5 @@
 window.onload = function(){
 
-  var click = document.getElementById("searchButton");
   var input = document.getElementById("input");
   var inputValue = "";
   var createArticle = document.getElementById("addArticles");
@@ -44,6 +43,7 @@ window.onload = function(){
     articles.send();
   };
 
+  //Make article structure 
   var makeArticle = function (title, description, link){
 
     var article = document.createElement("article"),
@@ -68,5 +68,4 @@ window.onload = function(){
     article.className = "article";
     return article;
   };
-  click.addEventListener("click", getArticle);
 };
