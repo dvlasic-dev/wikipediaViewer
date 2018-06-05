@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Wikipedia Viewer</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="skeleton.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container search">
+    <div class="row">
+      <h1>Wikipedia viewer</h1>
+      <form id="input-form">
+        <div class="row">
+          <input type="text" id="input" placeholder="Search"></input>
+        </div>
+        <div class="row">
+          <input type="submit" value="submit" id="searchButton">
+        <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank"> <button type="button" id="searchButton">Random search</button></a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="articles" class="container">
+    <!-- Articles go here -->
+  </div>
+
+  <script type="text/javascript" src="./app.js"></script>
+</body>
+
+</html>
