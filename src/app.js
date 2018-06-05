@@ -4,11 +4,15 @@ const articles = document.querySelector('#articles');
 function getArticles(inputValue) {
 	const req = new XMLHttpRequest();
 
-	req.open('GET', `https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=${inputValue}&&origin=*`, true);
+	req.open(
+		'GET',
+		`https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=${inputValue}&&origin=*`,
+		true
+	);
 	req.onload = () => {
 		req.status >= 200 && req.status < 400
 			? createArticles(JSON.parse(req.response))
-			: console.error('Request error');
+			: console.log('Request error');
 	};
 	req.send();
 }

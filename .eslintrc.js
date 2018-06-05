@@ -1,12 +1,19 @@
-{
+module.exports = {
     "env": {
-        "browser": true
+        "browser": true,
+        "es6": true
     },
     "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
     "rules": {
         "indent": [
-            2,
-            2
+            "error",
+            "tab"
         ],
         "linebreak-style": [
             "error",
@@ -14,20 +21,12 @@
         ],
         "quotes": [
             "error",
-            "double"
+            "single"
         ],
         "semi": [
             "error",
             "always"
         ],
-        "no-unused-vars": [
-            0,{
-              "vars": "all",
-              "args": "after-used"
-            }],
-        "no-console":[
-          "error", {
-            "allow": ["warn", "error"] }] 
-
+        
     }
-}
+};
